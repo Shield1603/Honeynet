@@ -1,0 +1,13 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /home/cowrie/cowrie/var/log/cowrie/cowrie.json*
+    close_inactive: 24h
+    scan_frequency: 5s
+    fields:
+      honeypot: cowrie
+    fields_under_root: false
+
+output.logstash:
+  hosts: ["<ELK_SERVER_IP>:5044"]

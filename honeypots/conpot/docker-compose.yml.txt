@@ -1,0 +1,21 @@
+version: '3'
+services:
+  conpot:
+    image: honeynet/conpot
+    container_name: conpot
+    restart: always
+    ports:
+      - "502:5020"
+      - "102:10201"
+      - "80:8800"
+      - "161:16100/udp"
+      - "47808:47808/udp"
+      - "623:6230"
+      - "44818:44818"
+      - "21:2121"
+      - "69:6969/udp"
+    logging:
+      driver: json-file
+      options:
+        max-size: 100m
+        max-file: "3"

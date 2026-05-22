@@ -1,0 +1,22 @@
+version: '3'
+services:
+  dionaea:
+    image: dinotools/dionaea
+    container_name: dionaea
+    restart: always
+    ports:
+      - "21:21"
+      - "23:23"
+      - "25:25"
+      - "80:80"
+      - "443:443"
+      - "445:445"
+      - "1433:1433"
+      - "3306:3306"
+      - "5060:5060"
+      - "69:69/udp"
+    logging:
+      driver: json-file
+      options:
+        max-size: 100m
+        max-file: "3"

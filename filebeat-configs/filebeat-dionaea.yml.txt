@@ -1,0 +1,13 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /var/lib/docker/containers/<CONTAINER_ID>/<CONTAINER_ID>-json.log
+    close_inactive: 24h
+    scan_frequency: 5s
+    fields:
+      honeypot: dionaea
+    fields_under_root: false
+
+output.logstash:
+  hosts: ["<ELK_SERVER_IP>:5044"]

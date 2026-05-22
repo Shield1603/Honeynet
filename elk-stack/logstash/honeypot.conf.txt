@@ -1,0 +1,49 @@
+input {
+  beats {
+    port => 5044
+  }
+}
+
+filter {
+  if [fields][honeypot] == "cowrie" {
+    json {
+      source => "message"
+    }
+    mutate {
+      add_field => {
+        "honeypot_type" => "cowrie"
+        "attack_category" => "ssh_telnet"
+      }
+    }
+  }
+
+  if [fields][honeypot] == "dionaea" {
+    mutate {
+      add_field => {
+        "honeypot_type" => "dionaea"
+        "attack_category" => "malware_capture"
+      }
+    }
+  }
+
+  if [fields][honeypot] == "conpot" {
+    mutate {
+      add_field => {
+        "honeypot_type" => "conpot"
+        "attack_category" => "ics_scada"
+      }
+    }
+  }
+
+  geoip {
+    source => "src_ip"
+    target => "geoip"
+  }
+}
+
+output {
+  elasticsearch {
+    hosts => ["localhost:9200"]
+    index => "honeypot-unified-%{+YYYY.MM.dd}"
+  }
+}
