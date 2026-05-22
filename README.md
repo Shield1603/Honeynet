@@ -8,7 +8,7 @@ Cloud, designed to capture and analyze real-world cyber attacks in real time.
 
 ## Architecture
 
-![Architecture](architecture/architecture.png)
+![Architecture](architecture/Architecture.png)
 
 ## Honeypots Deployed
 
