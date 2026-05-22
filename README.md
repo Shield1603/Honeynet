@@ -57,6 +57,4 @@ The full project report is available [here](report/final-report.pdf).
 
 ## Author
 
-**Shrushti Samant**  
-MSc Cybersecurity  
-[LinkedIn](https://linkedin.com/in/YOUR-PROFILE) | [Email](mailto:your-email@gmail.com)
+**Shrushti Samant and aadit khanolkar**  
